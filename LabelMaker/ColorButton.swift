@@ -1,0 +1,18 @@
+//
+//  ColorButton.swift
+//  LabelMaker
+//
+//  Created by Jia Chen on 2024/10/17.
+//
+
+import SwiftUI
+
+struct ColorButton: View {
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
+}
+
+#Preview {
+    ColorButton()
+}
