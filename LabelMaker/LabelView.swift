@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct LabelView: View {
+    @Environment(\.isEnabled) private var isEnabled
+    @Binding var label: Label
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TextField("Type to enter text", text: $label.text, axis: .vertical)
+            .frame(width: 500, height: isEnabled ? 500 : nil)
+            .padding(50)
+            .background(label.selectedColor(), in: RoundedRectangle(cornerRadius: label.cornerRadius))
+            .foregroundStyle(.black)
+            .font(.system(size: 40, weight: .semibold))
+            .multilineTextAlignment(.center)
     }
 }
 
 #Preview {
-    LabelView()
+    @Previewable @State var label = Label(text: "The label's text content")
+        LabelView(label: $label)
+        .disabled(true)
 }
